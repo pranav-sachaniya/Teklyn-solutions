@@ -1,3 +1,5 @@
+document.addEventListener('ComponentsLoaded', () => {
+
 // ===== Navbar scroll effect =====
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
@@ -274,3 +276,5 @@ async function sendToGoogleSheets(payload) {
 
     return resp;
 }
+
+}); // End ComponentsLoaded event listener
