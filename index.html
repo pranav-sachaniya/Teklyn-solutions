@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teklyn Solutions — Designing, Building & Scaling Digital Products</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <!-- External Stylesheet (extracted from inline styles) -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+
+<body>
+
+    <!-- ===== VIEW: NAVBAR (see views/navbar.html) ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">Teklyn Solutions</a>
+            <div class="nav-links">
+                <a href="#">Products</a>
+                <a href="#">Solutions</a>
+                <a href="#">Peer Stories</a>
+                <a href="#">Knowledge Hub</a>
+                <a href="#">Company</a>
+            </div>
+            <div class="nav-right">
+                <button class="nav-search" aria-label="Search">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                </button>
+                <a href="#" class="btn-demo"><span class="dot"></span> Book a demo</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#">Products</a>
+        <a href="#">Solutions</a>
+        <a href="#">Peer Stories</a>
+        <a href="#">Knowledge Hub</a>
+        <a href="#">Company</a>
+        <a href="#" class="btn-demo" style="display:inline-flex; margin-top: 24px;"><span class="dot"></span> Book a
+            demo</a>
+    </div>
+
+    <!-- ===== VIEW: HERO (see views/hero.html) ===== -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="fade-up">
+                Teklyn Solutions — Designing, Building & Scaling Digital Products
+            </h1>
+            <p class="hero-subtitle fade-up stagger-1">
+                We combine product strategy, engineering, and execution to help startups and enterprises transform ideas
+                into scalable, high-performance software — delivered faster with reduced complexity.
+            </p>
+            <div class="hero-cta fade-up stagger-2">
+                <button class="btn-demo btn-consult" id="openConsultModal">
+                    <span class="dot"></span> Request a Consultation
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VIEW: SERVICES (see views/services.html) ===== -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="services-header">
+                <h2 class="services-title fade-up">Services Built for Modern Digital Businesses</h2>
+                <p class="services-subtitle fade-up stagger-1">From product engineering to enterprise platforms and
+                    growth enablement, we help teams build, modernize, and scale with confidence.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Card 1: Product Engineering -->
+                <div class="service-card fade-up" data-service="engineering">
+                    <div class="service-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6" />
+                            <polyline points="8 6 2 12 8 18" />
+                            <line x1="14" y1="4" x2="10" y2="20" />
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">Product Engineering</h3>
+                    <ul class="service-card-list">
+                        <li>Full-cycle product development (MVP to scale)</li>
+                        <li>Web, mobile, and SaaS application engineering</li>
+                        <li>Cloud-native, API-first, and headless architectures</li>
+                        <li>Senior-led delivery with clear technical ownership</li>
+                    </ul>
+                    <a href="#" class="service-card-link">
+                        Learn more
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Card 2: Enterprise & Platform Modernization -->
+                <div class="service-card fade-up stagger-1" data-service="enterprise">
+                    <div class="service-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                            <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                            <line x1="12" y1="12" x2="12" y2="12.01" />
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">Enterprise & Platform Modernization</h3>
+                    <ul class="service-card-list">
+                        <li>Legacy system modernization and re-architecture</li>
+                        <li>ERP implementation &amp; customization</li>
+                        <li>CMS, platform, and integration modernization</li>
+                        <li>Cloud migration and infrastructure optimization</li>
+                    </ul>
+                    <a href="#" class="service-card-link">
+                        Learn more
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Card 3: UI/UX & Experience Design -->
+                <div class="service-card fade-up stagger-2" data-service="design">
+                    <div class="service-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 19l7-7 3 3-7 7-3-3z" />
+                            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+                            <path d="M2 2l7.586 7.586" />
+                            <circle cx="11" cy="11" r="2" />
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">UI/UX & Experience Design</h3>
+                    <ul class="service-card-list">
+                        <li>Product UX and interaction design</li>
+                        <li>Design systems for scalable platforms</li>
+                        <li>User research, usability testing, and validation</li>
+                        <li>Conversion-focused interfaces for web and mobile</li>
+                    </ul>
+                    <a href="#" class="service-card-link">
+                        Learn more
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Card 4: Growth & Digital Enablement -->
+                <div class="service-card fade-up stagger-3" data-service="growth">
+                    <div class="service-card-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">Growth & Digital Enablement</h3>
+                    <ul class="service-card-list">
+                        <li>SEO, performance marketing, and analytics</li>
+                        <li>Branding and digital identity systems</li>
+                        <li>E-commerce platforms and MarTech enablement</li>
+                        <li>Experimentation, CRO, and performance optimization</li>
+                    </ul>
+                    <a href="#" class="service-card-link">
+                        Learn more
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ===== VIEW: DEVELOPMENT PROCESS (see views/process.html) ===== -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="process-header">
+                <h2 class="process-title fade-up">Our Development Process</h2>
+                <p class="process-subtitle fade-up stagger-1">A structured, product-first approach designed to reduce
+                    risk, ensure clarity, and deliver predictable outcomes.</p>
+            </div>
+
+            <div class="process-grid">
+                <!-- Timeline connector line (desktop only) -->
+                <div class="process-timeline-line" aria-hidden="true"></div>
+
+                <!-- Step 1 -->
+                <div class="process-card fade-up" data-step="1">
+                    <div class="process-card-step">
+                        <span class="step-number">01</span>
+                        <div class="step-dot"></div>
+                    </div>
+                    <div class="process-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8" />
+                            <path d="M21 21l-4.35-4.35" />
+                        </svg>
+                    </div>
+                    <h3 class="process-card-title">Discovery & Technical Alignment</h3>
+                    <p class="process-card-desc">We align on business goals, user needs, and technical constraints to
+                        define a clear, execution-ready roadmap.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="process-card fade-up stagger-1" data-step="2">
+                    <div class="process-card-step">
+                        <span class="step-number">02</span>
+                        <div class="step-dot"></div>
+                    </div>
+                    <div class="process-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="7" height="7" />
+                            <rect x="14" y="3" width="7" height="7" />
+                            <rect x="14" y="14" width="7" height="7" />
+                            <rect x="3" y="14" width="7" height="7" />
+                        </svg>
+                    </div>
+                    <h3 class="process-card-title">UX Strategy & Prototyping</h3>
+                    <p class="process-card-desc">User flows, wireframes, and interactive prototypes that validate
+                        assumptions before development begins.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="process-card fade-up stagger-2" data-step="3">
+                    <div class="process-card-step">
+                        <span class="step-number">03</span>
+                        <div class="step-dot"></div>
+                    </div>
+                    <div class="process-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6" />
+                            <polyline points="8 6 2 12 8 18" />
+                        </svg>
+                    </div>
+                    <h3 class="process-card-title">Agile Development & Quality Assurance</h3>
+                    <p class="process-card-desc">Iterative development with continuous testing, security reviews, and
+                        transparent progress updates.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="process-card fade-up stagger-3" data-step="4">
+                    <div class="process-card-step">
+                        <span class="step-number">04</span>
+                        <div class="step-dot"></div>
+                    </div>
+                    <div class="process-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                            <path
+                                d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                        </svg>
+                    </div>
+                    <h3 class="process-card-title">Launch, Scale & Continuous Support</h3>
+                    <p class="process-card-desc">Deployment, monitoring, performance optimization, and ongoing
+                        enhancements as your product evolves.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VIEW: MISSION (see views/mission.html) ===== -->
+    <section class="mission" id="mission">
+        <div class="container">
+            <div class="mission-header">
+                <h2 class="mission-title fade-up">Teklyn Solutions Mission & Vision</h2>
+            </div>
+            <div class="mission-inner">
+                <!-- Left: Abstract SVG Illustration -->
+                <div class="mission-visual fade-up">
+                    <svg class="mission-illustration" viewBox="0 0 480 520" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <!-- Background gradients -->
+                        <defs>
+                            <linearGradient id="grad1" x1="0" y1="0" x2="480" y2="520" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#E8DDD0" />
+                                <stop offset="50%" stop-color="#D4E4D8" />
+                                <stop offset="100%" stop-color="#D4E0F0" />
+                            </linearGradient>
+                            <linearGradient id="grad2" x1="100" y1="80" x2="380" y2="440"
+                                gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#0D3D3D" stop-opacity="0.08" />
+                                <stop offset="100%" stop-color="#0D3D3D" stop-opacity="0.02" />
+                            </linearGradient>
+                            <linearGradient id="grad3" x1="200" y1="100" x2="350" y2="400"
+                                gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#A8D8B9" stop-opacity="0.5" />
+                                <stop offset="100%" stop-color="#85C4E0" stop-opacity="0.3" />
+                            </linearGradient>
+                            <linearGradient id="grad4" x1="50" y1="200" x2="300" y2="500"
+                                gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#E8A87C" stop-opacity="0.3" />
+                                <stop offset="100%" stop-color="#C4A8E0" stop-opacity="0.2" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Main background shape -->
+                        <rect x="20" y="20" width="440" height="480" rx="32" fill="url(#grad1)" />
+                        <!-- Abstract circles -->
+                        <circle cx="340" cy="120" r="90" fill="url(#grad3)" opacity="0.6" />
+                        <circle cx="140" cy="380" r="110" fill="url(#grad4)" opacity="0.5" />
+                        <circle cx="260" cy="260" r="60" fill="url(#grad2)" />
+                        <!-- Growth arrow path -->
+                        <path d="M100 400 C150 350, 200 380, 240 300 C280 220, 320 250, 380 120" stroke="#0D3D3D"
+                            stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.15" />
+                        <circle cx="380" cy="120" r="6" fill="#0D3D3D" opacity="0.2" />
+                        <!-- Floating geometric shapes -->
+                        <rect x="300" y="340" width="80" height="80" rx="16" fill="#0D3D3D" opacity="0.05"
+                            transform="rotate(15 340 380)" />
+                        <rect x="80" y="140" width="60" height="60" rx="12" fill="#A8D8B9" opacity="0.3"
+                            transform="rotate(-10 110 170)" />
+                        <!-- Target/bullseye (Goal) -->
+                        <circle cx="360" cy="200" r="28" stroke="#0D3D3D" stroke-width="1.5" fill="none"
+                            opacity="0.12" />
+                        <circle cx="360" cy="200" r="16" stroke="#0D3D3D" stroke-width="1.5" fill="none"
+                            opacity="0.12" />
+                        <circle cx="360" cy="200" r="4" fill="#0D3D3D" opacity="0.15" />
+                        <!-- Connection dots -->
+                        <circle cx="200" cy="180" r="3" fill="#0D3D3D" opacity="0.1" />
+                        <circle cx="160" cy="260" r="3" fill="#0D3D3D" opacity="0.1" />
+                        <circle cx="300" cy="300" r="3" fill="#0D3D3D" opacity="0.1" />
+                        <circle cx="220" cy="420" r="3" fill="#0D3D3D" opacity="0.1" />
+                        <!-- Dotted arc lines -->
+                        <path d="M180 200 Q240 160 300 200" stroke="#0D3D3D" stroke-width="1" stroke-dasharray="4 6"
+                            fill="none" opacity="0.1" />
+                        <path d="M140 320 Q240 280 340 320" stroke="#0D3D3D" stroke-width="1" stroke-dasharray="4 6"
+                            fill="none" opacity="0.1" />
+                    </svg>
+                </div>
+
+                <!-- Right: Goal / Vision / Mission Cards -->
+                <div class="mission-content">
+                    <div class="mission-card fade-up" data-mission="goal">
+                        <div class="mission-card-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <circle cx="12" cy="12" r="6" />
+                                <circle cx="12" cy="12" r="2" />
+                            </svg>
+                        </div>
+                        <div class="mission-card-body">
+                            <h3>Our Goal</h3>
+                            <p>We create digital products that simplify lives, solve real problems, and deliver
+                                meaningful user experiences.</p>
+                        </div>
+                    </div>
+
+                    <div class="mission-card fade-up stagger-1" data-mission="vision">
+                        <div class="mission-card-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                        </div>
+                        <div class="mission-card-body">
+                            <h3>Our Vision</h3>
+                            <p>To lead globally in building innovative, scalable software that empowers organizations in
+                                a digital-first world.</p>
+                        </div>
+                    </div>
+
+                    <div class="mission-card fade-up stagger-2" data-mission="mission">
+                        <div class="mission-card-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                                <path
+                                    d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                            </svg>
+                        </div>
+                        <div class="mission-card-body">
+                            <h3>Our Mission</h3>
+                            <p>To partner with businesses in designing and delivering custom software solutions that
+                                fuel growth, reduce complexity, and ensure long-term success.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VIEW: INDUSTRIES (see views/industries.html) ===== -->
+    <section class="industries" id="industries">
+        <div class="container">
+            <div class="industries-header">
+                <h2 class="industries-title fade-up">Industries We Serve</h2>
+                <p class="industries-subtitle fade-up stagger-1">Whether you're in healthcare, retail, or any other
+                    sector, we create solutions tailored to your unique business challenges and requirements.</p>
+            </div>
+        </div>
+        <div class="industries-carousel">
+            <div class="industries-track" id="industriesTrack">
+                <!-- Healthcare -->
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Healthcare</span>
+                </div>
+                <!-- Retail -->
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                            <path d="M3 6h18" />
+                            <path d="M16 10a4 4 0 0 1-8 0" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Retail</span>
+                </div>
+                <!-- Finance -->
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="1" x2="12" y2="23" />
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Finance</span>
+                </div>
+                <!-- Education -->
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                            <path d="M6 12v5c3 3 10 3 12 0v-5" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Education</span>
+                </div>
+                <!-- Real Estate -->
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                            <polyline points="9 22 9 12 15 12 15 22" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Real Estate</span>
+                </div>
+                <!-- Manufacturing -->
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Manufacturing</span>
+                </div>
+                <!-- Transportation -->
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
+                            <path d="M15 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 13.52 9H12" />
+                            <circle cx="17" cy="18" r="2" />
+                            <circle cx="7" cy="18" r="2" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Transportation</span>
+                </div>
+                <!-- Entertainment -->
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="5 3 19 12 5 21 5 3" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Entertainment</span>
+                </div>
+                <!-- Hospitality -->
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Z" />
+                            <path d="m9 16 .348-.24c1.465-1.013 3.84-1.013 5.304 0L15 16" />
+                            <path d="M8 7h.01" />
+                            <path d="M16 7h.01" />
+                            <path d="M12 7h.01" />
+                            <path d="M12 11h.01" />
+                            <path d="M16 11h.01" />
+                            <path d="M8 11h.01" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Hospitality</span>
+                </div>
+                <!-- Travel -->
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2Z" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Travel</span>
+                </div>
+                <!-- Legal -->
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+                            <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+                            <path d="M7 21h10" />
+                            <path d="M12 3v18" />
+                            <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Legal</span>
+                </div>
+                <!-- Construction -->
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L12 9" />
+                            <path d="M17.64 15 22 10.64" />
+                            <path
+                                d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Construction</span>
+                </div>
+
+                <!-- Duplicate cards for infinite scroll -->
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Healthcare</span>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                            <path d="M3 6h18" />
+                            <path d="M16 10a4 4 0 0 1-8 0" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Retail</span>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="1" x2="12" y2="23" />
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Finance</span>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                            <path d="M6 12v5c3 3 10 3 12 0v-5" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Education</span>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                            <polyline points="9 22 9 12 15 12 15 22" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Real Estate</span>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Manufacturing</span>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
+                            <path d="M15 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 13.52 9H12" />
+                            <circle cx="17" cy="18" r="2" />
+                            <circle cx="7" cy="18" r="2" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Transportation</span>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="5 3 19 12 5 21 5 3" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Entertainment</span>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Z" />
+                            <path d="m9 16 .348-.24c1.465-1.013 3.84-1.013 5.304 0L15 16" />
+                            <path d="M8 7h.01" />
+                            <path d="M16 7h.01" />
+                            <path d="M12 7h.01" />
+                            <path d="M12 11h.01" />
+                            <path d="M16 11h.01" />
+                            <path d="M8 11h.01" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Hospitality</span>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2Z" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Travel</span>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+                            <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+                            <path d="M7 21h10" />
+                            <path d="M12 3v18" />
+                            <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Legal</span>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L12 9" />
+                            <path d="M17.64 15 22 10.64" />
+                            <path
+                                d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91" />
+                        </svg>
+                    </div>
+                    <span class="industry-card-name">Construction</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VIEW: BLOG (see views/blog.html) ===== -->
+    <section class="blog">
+        <div class="container">
+            <div class="blog-header fade-up">
+                <h2>Go further</h2>
+                <a href="#" class="btn-blog">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 8v8m-4-4h8" />
+                    </svg>
+                    Visit the blog
+                </a>
+            </div>
+            <div class="blog-grid">
+                <a href="#" class="blog-card fade-up">
+                    <div class="blog-placeholder blp-1 blog-card-img"></div>
+                    <div class="blog-card-body">
+                        <span class="blog-card-tag">Search Strategy</span>
+                        <h3>SEO, GEO, and AEO: What They Are, How They Differ, and Why Your Search Strategy Needs All
+                            Three</h3>
+                        <div class="blog-card-author">
+                            <div class="author-placeholder"></div>
+                            <div class="blog-card-author-info">
+                                <span class="author-name">By Swetha Venkiteswaran</span>
+                                <span class="author-role">Content Writer @ Teklyn Solutions</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="blog-card fade-up stagger-1">
+                    <div class="blog-placeholder blp-2 blog-card-img"></div>
+                    <div class="blog-card-body">
+                        <span class="blog-card-tag">Ad Platforms</span>
+                        <h3>The Age of the Agentic Marketing Stack: What Happens When Ad Platforms Become Autonomous
+                        </h3>
+                        <div class="blog-card-author">
+                            <div class="author-placeholder"></div>
+                            <div class="blog-card-author-info">
+                                <span class="author-name">By Kristen Pecka</span>
+                                <span class="author-role">Head of Stellar Marketing</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="blog-card fade-up stagger-2">
+                    <div class="blog-placeholder blp-3 blog-card-img"></div>
+                    <div class="blog-card-body">
+                        <h3>$0 to $3M in Four Months. This Is What AI Marketing Actually Looks Like.</h3>
+                        <div class="blog-card-author">
+                            <div class="author-placeholder"></div>
+                            <div class="blog-card-author-info">
+                                <span class="author-name">By Shubham Mishra</span>
+                                <span class="author-role">CEO &amp; Co-Founder @ Teklyn Solutions</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VIEW: CTA (see views/cta.html) ===== -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-inner fade-up">
+                <h2>Enter a new era<br>of advertising</h2>
+                <a href="#" class="btn-demo"><span class="dot"></span> Book a demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VIEW: FOOTER (see views/footer.html) ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo">Teklyn Solutions</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <a href="#">Prism</a>
+                    <a href="#">Adroom</a>
+                    <a href="#">Integrations</a>
+                    <a href="#">Compliance</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Solutions</h4>
+                    <a href="#">By team</a>
+                    <a href="#">By use case</a>
+                    <a href="#">By industry</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Knowledge Hub</h4>
+                    <a href="#">Blog</a>
+                    <a href="#">Resources</a>
+                    <a href="#">Podcasts</a>
+                    <a href="#">Events</a>
+                    <a href="#">Prism FAQ</a>
+                    <a href="#">Glossary</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="#">About</a>
+                    <a href="#">News &amp; press</a>
+                    <a href="#">Careers</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-partners">
+                    <div style="display:flex;align-items:center;gap:6px;opacity:0.5;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z" />
+                        </svg>
+                        <span style="font-size:11px; font-weight:600;">Meta Business Partner</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:6px;opacity:0.5;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
+                            <path
+                                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                            <path
+                                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                            <path
+                                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                        </svg>
+                        <span style="font-size:11px; font-weight:600;">Google Partner</span>
+                    </div>
+                </div>
+                <div class="footer-legal">
+                    <span>&copy; 2026 Teklyn Solutions</span>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Leapus CSR Policy</a>
+                    <a href="#">Teklyn Solutions Fulfillment Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== CONSULTATION MODAL ===== -->
+    <div class="modal-overlay" id="consultModal">
+        <div class="modal-container">
+            <button class="modal-close" id="closeConsultModal" aria-label="Close">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+            <h2 class="modal-title">Request a Consultation</h2>
+            <p class="modal-desc">Tell us about your project and we'll get back to you shortly.</p>
+
+            <form class="modal-form" id="consultForm" novalidate>
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="consultEmail">Email Address <span class="required">*</span></label>
+                    <input type="email" id="consultEmail" name="email" placeholder="you@company.com" required
+                        autocomplete="email">
+                    <span class="form-error" id="emailError"></span>
+                </div>
+
+                <!-- Service Selection -->
+                <div class="form-group">
+                    <label>Services You're Interested In <span class="required">*</span></label>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="services" value="Mobile App Development">
+                            <span class="checkbox-custom"></span>
+                            Mobile App Development
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="services" value="Web App Development">
+                            <span class="checkbox-custom"></span>
+                            Web App Development
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="services" value="SEO">
+                            <span class="checkbox-custom"></span>
+                            SEO
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="services" value="UI/UX Design">
+                            <span class="checkbox-custom"></span>
+                            UI/UX Design
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="services" value="Digital Marketing">
+                            <span class="checkbox-custom"></span>
+                            Digital Marketing
+                        </label>
+                    </div>
+                    <span class="form-error" id="servicesError"></span>
+                </div>
+
+                <!-- Description -->
+                <div class="form-group">
+                    <label for="consultDesc">Tell Us About Your Requirements <span class="required">*</span></label>
+                    <textarea id="consultDesc" name="description" rows="4"
+                        placeholder="Describe your project, timeline, budget range, or any specific requirements..."
+                        required></textarea>
+                    <span class="form-error" id="descError"></span>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="btn-demo btn-submit" id="submitConsult">
+                    <span class="btn-submit-text">Submit Request</span>
+                    <span class="btn-submit-loader" style="display:none;">
+                        <svg class="spinner" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5">
+                            <circle cx="12" cy="12" r="10" stroke-dasharray="31.4" stroke-dashoffset="10"
+                                stroke-linecap="round" />
+                        </svg>
+                        Submitting...
+                    </span>
+                </button>
+            </form>
+
+            <!-- Success Message -->
+            <div class="modal-success" id="consultSuccess" style="display:none;">
+                <div class="success-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#0D3D3D" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M8 12l2.5 2.5L16 9" />
+                    </svg>
+                </div>
+                <h3>Request Submitted!</h3>
+                <p>Your request has been submitted successfully. Our team will contact you shortly.</p>
+                <button class="btn-demo" id="closeSuccessModal" style="margin-top:20px;"><span class="dot"></span>
+                    Close</button>
+            </div>
+
+            <!-- Error Message -->
+            <div class="modal-error" id="consultError" style="display:none;">
+                <div class="error-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="8" x2="12" y2="12" />
+                        <line x1="12" y1="16" x2="12.01" y2="16" />
+                    </svg>
+                </div>
+                <h3>Submission Failed</h3>
+                <p>Something went wrong. Please try again or email us directly at <a
+                        href="mailto:teklynllp@gmail.com">teklynllp@gmail.com</a>.</p>
+                <button class="btn-demo" id="retryConsult" style="margin-top:20px;"><span class="dot"></span> Try
+                    Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- External JavaScript (extracted from inline script) -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>
