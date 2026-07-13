@@ -488,7 +488,7 @@ ul {
 }
 
 .hero {
-  min-height: calc(100vh - 57px);
+  min-height: 85vh;
   background: #F7F7F7;
   /* Light background behind canvas */
   display: flex;
@@ -496,7 +496,7 @@ ul {
   justify-content: flex-start;
   position: relative;
   overflow: hidden;
-  padding: 160px 0 80px;
+  padding: 200px 0 100px;
 }
 
 /* No gradient glows — clean flat background */
@@ -517,7 +517,7 @@ ul {
   align-items: center;
   gap: 8px;
   padding: 8px 20px;
-  background: rgba(230, 57, 70, 0.06);
+  background: rgba(146, 44, 52, 0.06);
   border-radius: var(--r-pill);
   font-size: 14px;
   font-weight: 700;
