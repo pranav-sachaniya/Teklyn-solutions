@@ -488,7 +488,7 @@ ul {
 }
 
 .hero {
-  min-height: 85vh;
+  min-height: calc(100vh - 57px);
   background: #F7F7F7;
   /* Light background behind canvas */
   display: flex;
@@ -496,7 +496,7 @@ ul {
   justify-content: flex-start;
   position: relative;
   overflow: hidden;
-  padding: 200px 0 100px;
+  padding: 170px 0 40px;
 }
 
 /* No gradient glows — clean flat background */
@@ -557,7 +557,7 @@ ul {
 }
 
 .hero-tech-stack {
-  margin-top: 60px;
+  margin-top: 55px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -620,7 +620,7 @@ ul {
 
 .marquee-track {
   display: inline-flex;
-  animation: marquee-scroll 28s linear infinite;
+  animation: marquee-scroll 60s linear infinite;
 }
 
 .marquee-item {
@@ -633,6 +633,11 @@ ul {
   text-transform: uppercase;
   color: #fff;
   padding: 0 32px;
+}
+
+.marquee-item i {
+  font-size: 16px;
+  opacity: 0.9;
 }
 
 .marquee-item .star {
