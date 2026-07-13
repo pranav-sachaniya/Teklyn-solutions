@@ -29,12 +29,14 @@ document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
 // ===== Brands carousel pause on hover =====
 const brandsTrack = document.getElementById('brandsTrack');
-brandsTrack.addEventListener('mouseenter', () => {
-    brandsTrack.style.animationPlayState = 'paused';
-});
-brandsTrack.addEventListener('mouseleave', () => {
-    brandsTrack.style.animationPlayState = 'running';
-});
+if (brandsTrack) {
+    brandsTrack.addEventListener('mouseenter', () => {
+        brandsTrack.style.animationPlayState = 'paused';
+    });
+    brandsTrack.addEventListener('mouseleave', () => {
+        brandsTrack.style.animationPlayState = 'running';
+    });
+}
 
 
 // =============================================================================
@@ -276,5 +278,156 @@ async function sendToGoogleSheets(payload) {
 
     return resp;
 }
+
+// =============================================================================
+// ===== HERO ANIMATIONS & TRANSITIONS =========================================
+// =============================================================================
+
+// 1. Page Opening Transition
+const pageTransition = document.getElementById('page-transition');
+if (pageTransition) {
+    setTimeout(() => {
+        pageTransition.classList.add('loaded');
+        setTimeout(() => pageTransition.remove(), 1200); // Cleanup DOM
+    }, 100);
+}
+
+// 2. Typing Effect for Hero Heading
+async function typeHeroText() {
+    const heading = document.getElementById('heroHeading');
+    if (!heading) return;
+    
+    const fullText = [
+        { text: "We Design, Build And ", isAccent: false },
+        { text: "Scale", isAccent: true },
+        { text: " Digital Tools", isAccent: false }
+    ];
+
+    let currentHTML = "";
+    const delay = (ms) => new Promise(res => setTimeout(res, ms));
+
+    // Wait a bit before starting to type
+    await delay(500);
+
+    for (const segment of fullText) {
+        if (segment.isAccent) {
+            currentHTML += `<span class="accent-word">`;
+        }
+        for (let i = 0; i < segment.text.length; i++) {
+            currentHTML += segment.text[i];
+            heading.innerHTML = segment.isAccent ? currentHTML + `</span>` : currentHTML;
+            await delay(Math.random() * 40 + 30); // 30-70ms delay
+        }
+        if (segment.isAccent) {
+            currentHTML += `</span>`;
+        }
+    }
+    
+    heading.classList.add('done'); // hide blinking cursor
+
+    // 3. Staggered Reveals
+    setTimeout(() => {
+        document.getElementById('heroSubtitle')?.classList.add('stagger-visible');
+    }, 100);
+    setTimeout(() => {
+        document.getElementById('heroCta')?.classList.add('stagger-visible');
+    }, 400);
+    setTimeout(() => {
+        document.getElementById('heroTechStack')?.classList.add('stagger-visible');
+    }, 600);
+}
+typeHeroText();
+
+// 4. Interactive Canvas Background
+function initHeroCanvas() {
+    const canvas = document.getElementById('heroCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    
+    let width, height;
+    let particles = [];
+    let mouse = { x: -1000, y: -1000 };
+
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        const heroSection = document.querySelector('.hero');
+        height = canvas.height = heroSection ? heroSection.offsetHeight : window.innerHeight;
+        initParticles();
+    }
+
+    function initParticles() {
+        particles = [];
+        const spacing = 45; // density of the pattern
+        for (let x = 0; x < width; x += spacing) {
+            for (let y = 0; y < height; y += spacing) {
+                particles.push({
+                    x: x + (Math.random() * 20 - 10),
+                    y: y + (Math.random() * 20 - 10),
+                    originX: x,
+                    originY: y,
+                    vx: 0,
+                    vy: 0,
+                    size: Math.random() * 1.5 + 1.0 // Slightly larger dots
+                });
+            }
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+        ctx.fillStyle = '#DCE0E5'; // Very light, subtle gray
+        
+        particles.forEach(p => {
+            // Mouse repulsion
+            const dx = mouse.x - p.x;
+            const dy = mouse.y - p.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            const maxDist = 150;
+
+            if (dist < maxDist) {
+                const force = (maxDist - dist) / maxDist;
+                p.vx -= (dx / dist) * force * 0.8;
+                p.vy -= (dy / dist) * force * 0.8;
+            }
+
+            // Spring back to origin
+            p.vx += (p.originX - p.x) * 0.04;
+            p.vy += (p.originY - p.y) * 0.04;
+            
+            // Friction
+            p.vx *= 0.85;
+            p.vy *= 0.85;
+
+            p.x += p.vx;
+            p.y += p.vy;
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fill();
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', resize);
+    
+    const heroSection = document.querySelector('.hero');
+    if (heroSection) {
+        heroSection.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+        
+        heroSection.addEventListener('mouseleave', () => {
+            mouse.x = -1000;
+            mouse.y = -1000;
+        });
+    }
+
+    resize();
+    animate();
+}
+initHeroCanvas();
 
 }); // End ComponentsLoaded event listener

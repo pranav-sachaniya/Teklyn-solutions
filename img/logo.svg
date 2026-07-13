@@ -1,6 +1,6 @@
 <svg viewBox="0 0 420 140" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M 20 30 H 65 V 90" stroke="#FF4B12" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
   <circle cx="108" cy="30" r="14" fill="#FF4B12"/>
-  <text x="135" y="90" font-family="'DM Sans', sans-serif" font-weight="700" font-size="84" fill="#FFFFFF" letter-spacing="-2">ek Lyn</text>
-  <text x="190" y="130" font-family="'DM Sans', sans-serif" font-weight="400" font-size="28" fill="#FFFFFF" letter-spacing="1">Solutions LLP</text>
+  <text x="135" y="90" font-family="'Inter', 'DM Sans', sans-serif" font-weight="700" font-size="84" fill="#0F0F0F" letter-spacing="-2">ek Lyn</text>
+  <text x="190" y="130" font-family="'Inter', 'DM Sans', sans-serif" font-weight="400" font-size="28" fill="#0F0F0F" letter-spacing="1">Solutions LLP</text>
 </svg>
