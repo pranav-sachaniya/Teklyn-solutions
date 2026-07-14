@@ -1,96 +1,134 @@
-﻿<!-- VIEW: SERVICES / FEATURES -->
+<!-- VIEW: SERVICES / FEATURES -->
 <section class="services" id="services">
-  <div class="container">
-    <div class="services-inner">
+  <!-- GSAP Pin Wrapper -->
+  <div class="services-pin-wrapper">
+    <div class="services-header container">
+      <span class="section-label">What We Do</span>
+      <h2>Services that drive digital transformation</h2>
+      <p>From strategy to execution — our experts cover every layer of the modern digital stack to turn your vision into
+        a scalable product.</p>
+    </div>
 
-      <!-- Left sticky column -->
-      <div class="services-left fade-up">
-        <span class="section-label">What We Do</span>
-        <h2>Empowering you and your business</h2>
-        <p>From strategy to execution — our team of experts covers every layer of the modern digital stack to turn your vision into a live, scalable product.</p>
-        <a href="#" class="btn btn-primary" id="openConsultModalServices">Start a Project <span>→</span></a>
+    <!-- The container that moves horizontally -->
+    <div class="services-horizontal-track">
+
+      <!-- Card 1 -->
+      <div class="service-card" data-service="Custom Software Development">
+        <div class="service-card-image">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop"
+            alt="Custom Software Development">
+        </div>
+        <div class="service-card-content">
+          <h3>Custom Software Development</h3>
+          <p>Tailor-made software solutions built to align with your unique workflows, scale with your growth, and
+            deliver measurable business outcomes.</p>
+        </div>
       </div>
 
-      <!-- Right: service rows -->
-      <div class="services-right">
-
-        <!-- Service 1 -->
-        <div class="service-item fade-up" data-service="engineering">
-          <div class="service-item-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/>
-            </svg>
-          </div>
-          <div class="service-item-body">
-            <h3>Product Engineering</h3>
-            <p>Full-cycle product development from MVP to scale. Web, mobile, and SaaS application engineering with cloud-native architectures.</p>
-            <div class="service-item-tags">
-              <span class="service-tag">MVP</span>
-              <span class="service-tag">SaaS</span>
-              <span class="service-tag">Cloud-Native</span>
-            </div>
-          </div>
-          <span class="service-item-arrow">→</span>
+      <!-- Card 2 -->
+      <div class="service-card" data-service="Web & Mobile App Development">
+        <div class="service-card-image">
+          <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop"
+            alt="Web & Mobile App Development">
         </div>
-
-        <!-- Service 2 -->
-        <div class="service-item fade-up stagger-1" data-service="enterprise">
-          <div class="service-item-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="12.01"/>
-            </svg>
-          </div>
-          <div class="service-item-body">
-            <h3>Enterprise &amp; Platform Modernization</h3>
-            <p>Legacy system modernization, ERP implementation, CMS migration, and cloud infrastructure optimization for enterprise teams.</p>
-            <div class="service-item-tags">
-              <span class="service-tag">ERP</span>
-              <span class="service-tag">Migration</span>
-              <span class="service-tag">DevOps</span>
-            </div>
-          </div>
-          <span class="service-item-arrow">→</span>
+        <div class="service-card-content">
+          <h3>Web & Mobile App Development</h3>
+          <p>High-performance web and native mobile applications engineered for speed, reliability, and exceptional user
+            experiences across every device.</p>
         </div>
-
-        <!-- Service 3 -->
-        <div class="service-item fade-up stagger-2" data-service="design">
-          <div class="service-item-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="2"/>
-            </svg>
-          </div>
-          <div class="service-item-body">
-            <h3>UI/UX &amp; Experience Design</h3>
-            <p>Product UX, interaction design, design systems, user research, and conversion-focused interfaces for web and mobile platforms.</p>
-            <div class="service-item-tags">
-              <span class="service-tag">Figma</span>
-              <span class="service-tag">Design Systems</span>
-              <span class="service-tag">UX Research</span>
-            </div>
-          </div>
-          <span class="service-item-arrow">→</span>
-        </div>
-
-        <!-- Service 4 -->
-        <div class="service-item fade-up stagger-3" data-service="growth">
-          <div class="service-item-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-            </svg>
-          </div>
-          <div class="service-item-body">
-            <h3>Growth &amp; Digital Enablement</h3>
-            <p>SEO, performance marketing, analytics, branding, e-commerce platforms, and CRO to drive measurable business outcomes.</p>
-            <div class="service-item-tags">
-              <span class="service-tag">SEO</span>
-              <span class="service-tag">Analytics</span>
-              <span class="service-tag">CRO</span>
-            </div>
-          </div>
-          <span class="service-item-arrow">→</span>
-        </div>
-
       </div>
+
+      <!-- Card 3 -->
+      <div class="service-card" data-service="Product Engineering & MVP">
+        <div class="service-card-image">
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop"
+            alt="Product Engineering & MVP Development">
+        </div>
+        <div class="service-card-content">
+          <h3>Product Engineering & MVP</h3>
+          <p>Full-cycle product development from concept validation to market-ready MVP — helping startups launch faster
+            and enterprises innovate boldly.</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="service-card" data-service="UI/UX Design & Prototyping">
+        <div class="service-card-image">
+          <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop"
+            alt="UI/UX Design & Prototyping">
+        </div>
+        <div class="service-card-content">
+          <h3>UI/UX Design & Prototyping</h3>
+          <p>Research-driven interface design and interactive prototyping that transforms complex ideas into intuitive,
+            conversion-optimized digital experiences.</p>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="service-card" data-service="AI Integration & Automation">
+        <div class="service-card-image">
+          <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&h=400&fit=crop"
+            alt="AI Integration & Automation">
+        </div>
+        <div class="service-card-content">
+          <h3>AI Integration & Automation</h3>
+          <p>Embed intelligent automation, machine learning models, and AI-powered workflows into your products to
+            unlock efficiency at every level.</p>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="service-card" data-service="Digital Marketing & SEO">
+        <div class="service-card-image">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+            alt="Digital Marketing & SEO">
+        </div>
+        <div class="service-card-content">
+          <h3>Digital Marketing & SEO</h3>
+          <p>Data-driven marketing strategies, technical SEO audits, and performance campaigns designed to boost
+            visibility and accelerate organic growth.</p>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="service-card" data-service="Technology Consulting & Modernization">
+        <div class="service-card-image">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
+            alt="Technology Consulting & Enterprise Modernization">
+        </div>
+        <div class="service-card-content">
+          <h3>Technology Consulting & Modernization</h3>
+          <p>Strategic technology advisory and enterprise modernization roadmaps that align your digital infrastructure
+            with long-term business objectives.</p>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="service-card" data-service="Software Maintenance & Support">
+        <div class="service-card-image">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop"
+            alt="Software Maintenance & Technical Support">
+        </div>
+        <div class="service-card-content">
+          <h3>Software Maintenance & Support</h3>
+          <p>Proactive monitoring, bug resolution, performance tuning, and continuous technical support to keep your
+            applications running at peak reliability.</p>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="service-card" data-service="Quality Assurance & Testing">
+        <div class="service-card-image">
+          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=400&fit=crop"
+            alt="Quality Assurance & Testing">
+        </div>
+        <div class="service-card-content">
+          <h3>Quality Assurance & Testing</h3>
+          <p>Comprehensive manual and automated testing — from functional QA to load testing — ensuring every release
+            meets the highest quality standards.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
