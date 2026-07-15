@@ -491,7 +491,7 @@ document.addEventListener('ComponentsLoaded', () => {
         let mm = gsap.matchMedia();
         
         // Desktop: Scroll-Jack (Horizontal scroll on vertical mouse wheel)
-        mm.add("(min-width: 769px)", () => {
+        mm.add("(min-width: 1025px)", () => {
             const tween = gsap.to(track, {
                 x: getScrollAmount,
                 ease: "none"
@@ -500,21 +500,21 @@ document.addEventListener('ComponentsLoaded', () => {
             ScrollTrigger.create({
                 trigger: wrapper,
                 start: "top top",
-                // The scroll distance determines how long the pin lasts
-                end: () => `+=${getScrollAmount() * -1}`,
+                // Make the scroll distance longer to smooth out the scrub effect
+                end: () => `+=${Math.abs(getScrollAmount()) * 1.5}`,
                 pin: true,
                 animation: tween,
-                scrub: 1, // Smooth scrubbing
+                scrub: 0.5, // Reduced scrub delay for tighter, less laggy response
                 invalidateOnRefresh: true
             });
         });
 
-        // Mobile: Native horizontal swipe (no ScrollTrigger pin)
-        mm.add("(max-width: 768px)", () => {
-            // GSAP cleans up the ScrollTrigger automatically.
-            // We just ensure the wrapper allows native horizontal scroll.
-            gsap.set(wrapper, { height: "auto" });
-            gsap.set('.services-scroll-wrapper', { overflowX: "auto" });
+        // Mobile/Tablet: Native vertical grid layout (handled by CSS)
+        mm.add("(max-width: 1024px)", () => {
+            // GSAP cleans up ScrollTrigger automatically on breakpoint mismatch.
+            // Reset transforms just in case.
+            gsap.set(track, { clearProps: "all" });
+            gsap.set(wrapper, { clearProps: "all" });
         });
     }
     

@@ -65,6 +65,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+  --scrollbar-width: calc(100vw - 100%);
 }
 
 body {
@@ -250,9 +251,9 @@ ul {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  /* Use scrollbar offset calculation to exactly match body width */
+  width: calc(100vw - var(--scrollbar-width, 0px));
   z-index: 1000;
-  padding: 0 32px;
   background: transparent;
   transition: background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
   border-bottom: 1px solid transparent;
@@ -268,6 +269,7 @@ ul {
 .nav-inner {
   max-width: var(--container);
   margin: 0 auto;
+  padding: 0 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -665,7 +667,7 @@ ul {
 }
 
 .services-pin-wrapper {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -700,81 +702,150 @@ ul {
   max-width: 1280px;
 }
 
-/* Track holds all cards in a row */
+/* Track holds all cards in a row on desktop */
+.services-track-container {
+  overflow: hidden;
+  width: 100%;
+}
+
 .services-horizontal-track {
   display: flex;
-  gap: 16px;
-  padding: 0 max(32px, calc((100vw - 1280px) / 2));
+  gap: 24px;
   width: max-content;
   will-change: transform;
+  /*
+    Align left edge of first card with .container content edge.
+    .container = max-width:1280px, margin:0 auto, padding:0 32px.
+    Container content left edge = max(32px, (bodyWidth - 1280px)/2 + 32px)
+    Using margin-left: the % resolves against .services-track-container width (= body width).
+    So: calc(50% - 608px) = (bodyWidth/2 - 640px + 32px) = (bodyWidth - 1280px)/2 + 32px
+    On small screens (< 1280px), this goes negative, so clamp to 32px.
+  */
+  margin-left: max(32px, calc(50% - 608px));
+  padding-right: 32px;
 }
 
 /* Individual card */
 .service-card {
-  flex: 0 0 340px;
-  background: #f5f6f7;
+  flex: 0 0 380px;
+  height: 480px;
+  position: relative;
   border-radius: var(--r-xl);
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.04),
-    0 1px 3px rgba(0, 0, 0, 0.02);
-  transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.4s ease;
 }
 
 .service-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(0, 0, 0, 0.04);
-  /* keep original border */
-  box-shadow:
-    0 24px 48px rgba(230, 57, 70, 0.12),
-    0 8px 16px rgba(230, 57, 70, 0.08);
+  border-color: var(--accent);
 }
 
-.service-card-image {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-}
-
-.service-card-image img {
+.service-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  z-index: 1;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.service-card:hover .service-card-image img {
+.service-card:hover .service-card-bg {
   transform: scale(1.05);
 }
 
+.service-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 15, 15, 0.9) 0%, rgba(15, 15, 15, 0.4) 50%, rgba(15, 15, 15, 0.1) 100%);
+  z-index: 2;
+  transition: background 0.4s ease;
+}
+
+.service-card:hover .service-card-overlay {
+  background: linear-gradient(to top, rgba(15, 15, 15, 0.95) 0%, rgba(15, 15, 15, 0.5) 60%, rgba(15, 15, 15, 0.2) 100%);
+}
+
 .service-card-content {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+  position: relative;
+  z-index: 3;
+  padding: 32px;
 }
 
 .service-card-content h3 {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text-dark-2);
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
   margin-bottom: 12px;
-  letter-spacing: -0.3px;
-  line-height: 1.3;
+  line-height: 1.2;
 }
 
 .service-card-content p {
-  font-size: 18px;
-  line-height: 1.6;
-  color: var(--text-gray);
-  flex: 1;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
 }
+
+/* Mobile & Tablet Adjustments for Services */
+@media (max-width: 1024px) {
+  .services {
+    padding: 60px 0;
+  }
+
+  .services-pin-wrapper {
+    height: auto !important;
+    overflow: visible !important;
+    display: block;
+  }
+
+  .services-track-container {
+    overflow: visible;
+  }
+
+  .services-horizontal-track {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Stack vertically on small screens */
+    gap: 16px;
+    padding: 0 24px;
+    margin-left: 0;
+    margin-top: 40px;
+  }
+
+  .services-header {
+    margin-bottom: 24px;
+    padding: 0 24px;
+  }
+
+  .service-card {
+    flex: auto;
+    width: 100%;
+    height: 320px;
+  }
+
+  .service-card-content h3 {
+    font-size: 20px;
+  }
+
+  .service-card-content p {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .services-horizontal-track {
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columns on tablets */
+  }
+}
+
 
 /* ===========================
    PROJECTS SHOWCASE
@@ -2071,6 +2142,10 @@ ul {
 
 @media (max-width: 768px) {
   .container {
+    padding: 0 20px;
+  }
+
+  .nav-inner {
     padding: 0 20px;
   }
 
