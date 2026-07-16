@@ -15,6 +15,16 @@ document.addEventListener('ComponentsLoaded', () => {
         document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
     });
 
+    // Close mobile menu on link click
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenuBtn.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+
     // ===== GSAP Smooth Animations =====
     // ===== Scroll animations =====
     const observer = new IntersectionObserver((entries) => {
@@ -57,7 +67,7 @@ document.addEventListener('ComponentsLoaded', () => {
 
     // ──── DOM References ────
     const modal = document.getElementById('consultModal');
-    const openBtn = document.getElementById('openConsultModal');
+    const openBtns = document.querySelectorAll('#openConsultModal, #openConsultModalNav, #openConsultModalMobile, #openConsultModalCta');
     const closeBtn = document.getElementById('closeConsultModal');
     const form = document.getElementById('consultForm');
     const submitBtn = document.getElementById('submitConsult');
@@ -117,9 +127,14 @@ document.addEventListener('ComponentsLoaded', () => {
         submitLoader.style.display = 'none';
     }
 
-    openBtn.addEventListener('click', () => {
-        resetModal();
-        openModal();
+    openBtns.forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                resetModal();
+                openModal();
+            });
+        }
     });
 
     // Handle clicks on service cards to open modal and pre-select service
