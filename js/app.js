@@ -25,6 +25,7 @@ document.addEventListener('ComponentsLoaded', () => {
         });
     });
 
+    initTestimonials();
     // ===== GSAP Smooth Animations =====
     // ===== Scroll animations =====
     const observer = new IntersectionObserver((entries) => {
@@ -67,7 +68,7 @@ document.addEventListener('ComponentsLoaded', () => {
 
     // ──── DOM References ────
     const modal = document.getElementById('consultModal');
-    const openBtns = document.querySelectorAll('#openConsultModal, #openConsultModalNav, #openConsultModalMobile, #openConsultModalCta');
+    const openBtns = document.querySelectorAll('#openConsultModal, #openConsultModalNav, #openConsultModalMobile, #openConsultModalCta, #openConsultModalMidCta');
     const closeBtn = document.getElementById('closeConsultModal');
     const form = document.getElementById('consultForm');
     const submitBtn = document.getElementById('submitConsult');
@@ -564,6 +565,137 @@ document.addEventListener('ComponentsLoaded', () => {
                 actionContainer.style.display = 'none';
             }
         });
+    }
+
+    // =============================================================================
+    // Testimonials Carousel
+    // =============================================================================
+    function initTestimonials() {
+        const track = document.getElementById('testimonialsTrack');
+        const indicatorsContainer = document.getElementById('testimonialsIndicators');
+        if (!track || !indicatorsContainer) return;
+
+        const cards = track.querySelectorAll('.testimonial-card');
+        const numCards = cards.length;
+        if (numCards === 0) return;
+
+        let currentIndex = 0;
+        let intervalId = null;
+        const autoAdvanceDelay = 5000;
+
+        function getVisibleCards() {
+            if (window.innerWidth <= 768) return 1;
+            if (window.innerWidth <= 1024) return 2;
+            return 3;
+        }
+
+        let visibleCards = getVisibleCards();
+        let maxIndex = numCards - visibleCards;
+
+        function initIndicators() {
+            indicatorsContainer.innerHTML = '';
+            for (let i = 0; i <= maxIndex; i++) {
+                const dot = document.createElement('button');
+                dot.classList.add('testimonial-dot');
+                dot.setAttribute('aria-label', `Go to testimonial group ${i + 1}`);
+                dot.addEventListener('click', () => goToSlide(i));
+                indicatorsContainer.appendChild(dot);
+            }
+        }
+
+        initIndicators();
+        let dots = indicatorsContainer.querySelectorAll('.testimonial-dot');
+
+        function updateCarousel() {
+            visibleCards = getVisibleCards();
+            maxIndex = Math.max(0, numCards - visibleCards);
+            if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+            // Using bounding client rect to get precise width including fractions
+            const cardWidth = cards[0].getBoundingClientRect().width;
+            const gap = 24; 
+            const offset = currentIndex * (cardWidth + gap);
+            
+            track.style.transform = `translateX(-${offset}px)`;
+
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        window.addEventListener('resize', () => {
+            const newVisible = getVisibleCards();
+            if (newVisible !== visibleCards) {
+                visibleCards = newVisible;
+                maxIndex = Math.max(0, numCards - visibleCards);
+                if (currentIndex > maxIndex) currentIndex = maxIndex;
+                initIndicators();
+                dots = indicatorsContainer.querySelectorAll('.testimonial-dot');
+            }
+            updateCarousel();
+        });
+
+        function goToSlide(index) {
+            currentIndex = index;
+            updateCarousel();
+            resetAutoAdvance();
+        }
+
+        function nextSlide() {
+            currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
+            updateCarousel();
+        }
+
+        function startAutoAdvance() {
+            if (!intervalId) {
+                intervalId = setInterval(nextSlide, autoAdvanceDelay);
+            }
+        }
+
+        function stopAutoAdvance() {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+        }
+
+        function resetAutoAdvance() {
+            stopAutoAdvance();
+            startAutoAdvance();
+        }
+
+        // Pause on hover
+        track.parentElement.addEventListener('mouseenter', stopAutoAdvance);
+        track.parentElement.addEventListener('mouseleave', startAutoAdvance);
+
+        // Touch support
+        let startX = 0;
+        track.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            stopAutoAdvance();
+        }, {passive: true});
+
+        track.addEventListener('touchend', (e) => {
+            const endX = e.changedTouches[0].clientX;
+            const diffX = startX - endX;
+            if (Math.abs(diffX) > 50) {
+                if (diffX > 0 && currentIndex < maxIndex) {
+                    currentIndex++;
+                } else if (diffX < 0 && currentIndex > 0) {
+                    currentIndex--;
+                }
+                updateCarousel();
+            }
+            startAutoAdvance();
+        }, {passive: true});
+
+        // Initialize state
+        updateCarousel();
+        startAutoAdvance();
     }
 
 }); // End ComponentsLoaded event listener

@@ -1,16 +1,6 @@
-<!-- ===== VIEW: INDUSTRIES (see views/industries.html) ===== -->
-    <section class="industries" id="industries">
-        <div class="container">
-            <div class="industries-header">
-                <span class="section-label fade-up">Industries</span>
-                <h2 class="industries-title fade-up stagger-1">Industries We Serve</h2>
-                <p class="industries-subtitle fade-up stagger-2">Whether you're in healthcare, retail, or any other
-                    sector, we create solutions tailored to your unique business challenges and requirements.</p>
-            </div>
-        </div>
-        <div class="industries-carousel">
-            <div class="industries-track" id="industriesTrack">
-                <!-- Healthcare -->
+const fs = require('fs');
+
+const htmlContent = `                <!-- Healthcare -->
                 <div class="industry-card">
                     <img src="assets/images/industries/industry_healthcare.png" alt="Healthcare" class="industry-card-img">
                     <div class="industry-card-overlay"></div>
@@ -143,7 +133,19 @@
                     <img src="assets/images/industries/industry_construction.png" alt="Construction" class="industry-card-img">
                     <div class="industry-card-overlay"></div>
                     <span class="industry-card-name">Construction</span>
-                </div>
-            </div>
-        </div>
-    </section>
+                </div>`;
+
+const file = 'views/industries.html';
+let content = fs.readFileSync(file, 'utf8');
+
+// Replace everything inside <div class="industries-track" id="industriesTrack"> ... </div>
+const startMarker = '<div class="industries-track" id="industriesTrack">';
+const endMarker = '            </div>\n        </div>\n    </section>';
+
+const startIndex = content.indexOf(startMarker) + startMarker.length;
+const endIndex = content.indexOf('</div>\n        </div>\n    </section>', startIndex);
+
+const newContent = content.substring(0, startIndex) + '\n' + htmlContent + '\n            ' + content.substring(endIndex);
+
+fs.writeFileSync(file, newContent);
+console.log('Successfully updated views/industries.html');
