@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const testimonials = [
@@ -38,6 +38,26 @@ const testimonials = [
 
 export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [itemsPerView, setItemsPerView] = useState(3);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setItemsPerView(1);
+      } else if (window.innerWidth < 1024) {
+        setItemsPerView(2);
+      } else {
+        setItemsPerView(3);
+      }
+    };
+    
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const maxIndex = Math.max(0, testimonials.length - itemsPerView);
+  const dots = Array.from({ length: maxIndex + 1 });
 
   return (
     <section className="testimonials" id="testimonials">
@@ -62,19 +82,16 @@ export default function Testimonials() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          {/* Framer motion translates the track directly */}
           <motion.div 
             className="testimonials-track" 
             id="testimonialsTrack"
-            animate={{ x: `-${activeIndex * 100}%` }}
+            animate={{ x: `calc(-${activeIndex * (100 / itemsPerView)}% - ${activeIndex * (24 / itemsPerView)}px)` }} // 24px is the gap
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            style={{ display: "flex", width: "100%" }}
           >
             {testimonials.map((testimonial, index) => (
               <div 
                 className="testimonial-card" 
                 key={index}
-                style={{ flex: "0 0 100%" }}
               >
                 <div className="stars">
                   <i className="fa-solid fa-star"></i>
@@ -103,7 +120,7 @@ export default function Testimonials() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          {testimonials.map((_, index) => (
+          {dots.map((_, index) => (
             <div 
               key={index} 
               className={`testimonial-dot ${index === activeIndex ? "active" : ""}`}
