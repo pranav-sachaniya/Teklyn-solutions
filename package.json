@@ -2,7 +2,7 @@
   "name": "teklyn-solutions",
   "version": "1.0.0",
   "scripts": {
-    "dev": "node dev-server.js",
-    "start": "node dev-server.js"
+    "dev": "cd teklyn-react && npm run dev",
+    "start": "cd teklyn-react && npm run start"
   }
 }
