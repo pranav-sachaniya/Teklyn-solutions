@@ -1,59 +1,83 @@
-﻿<!-- VIEW: BLOG -->
+<!-- VIEW: BLOG -->
 <section class="blog" id="blog">
   <div class="container">
     <div class="blog-header fade-up">
       <div>
         <span class="section-label">Insights</span>
-        <h2>What clients say</h2>
+        <h2>What we're thinking</h2>
       </div>
       <a href="#" class="btn-blog">
-        Visit the Blog
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <span>Visit the Blog</span>
+        <div class="btn-icon">
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
       </a>
     </div>
-    <div class="blog-grid">
-      <a href="#" class="blog-card fade-up">
-        <div class="blog-placeholder blp-1 blog-card-img"></div>
+    <div class="blog-layout">
+      <!-- Featured Post -->
+      <a href="#" class="blog-card featured fade-up">
+        <div class="blog-image-wrapper">
+          <div class="blog-placeholder blp-1 blog-card-img"></div>
+          <div class="blog-meta-glass">
+            <span class="blog-tag">Search Strategy</span>
+            <span class="blog-read-time"><i class="fa-regular fa-clock"></i> 8 min read</span>
+          </div>
+        </div>
         <div class="blog-card-body">
-          <span class="blog-card-tag">Search Strategy</span>
           <h3>SEO, GEO, and AEO: What They Are, How They Differ, and Why Your Search Strategy Needs All Three</h3>
+          <p class="blog-excerpt">Discover how integrating Search, Generative Engine, and Answer Engine Optimization can dramatically increase your organic visibility and drive higher-quality traffic in the AI era.</p>
           <div class="blog-card-author">
-            <div class="author-placeholder"></div>
+            <img src="https://ui-avatars.com/api/?name=Swetha+Venkiteswaran&background=0F172A&color=fff" alt="Swetha Venkiteswaran" class="author-avatar">
             <div class="blog-card-author-info">
-              <span class="author-name">By Swetha Venkiteswaran</span>
-              <span class="author-role">Content Writer @ Teklyn Solutions</span>
+              <span class="author-name">Swetha Venkiteswaran</span>
+              <span class="author-role">Content Writer</span>
             </div>
           </div>
         </div>
       </a>
-      <a href="#" class="blog-card fade-up stagger-1">
-        <div class="blog-placeholder blp-2 blog-card-img"></div>
-        <div class="blog-card-body">
-          <span class="blog-card-tag">Ad Platforms</span>
-          <h3>The Age of the Agentic Marketing Stack: What Happens When Ad Platforms Become Autonomous</h3>
-          <div class="blog-card-author">
-            <div class="author-placeholder"></div>
-            <div class="blog-card-author-info">
-              <span class="author-name">By Kristen Pecka</span>
-              <span class="author-role">Head of Stellar Marketing</span>
+      
+      <!-- Side Posts -->
+      <div class="blog-side-posts">
+        <a href="#" class="blog-card compact fade-up stagger-1">
+          <div class="blog-image-wrapper">
+            <div class="blog-placeholder blp-2 blog-card-img"></div>
+            <div class="blog-meta-glass">
+              <span class="blog-tag">Ad Platforms</span>
+              <span class="blog-read-time"><i class="fa-regular fa-clock"></i> 5 min read</span>
             </div>
           </div>
-        </div>
-      </a>
-      <a href="#" class="blog-card fade-up stagger-2">
-        <div class="blog-placeholder blp-3 blog-card-img"></div>
-        <div class="blog-card-body">
-          <span class="blog-card-tag">AI Marketing</span>
-          <h3>$0 to $3M in Four Months. This Is What AI Marketing Actually Looks Like.</h3>
-          <div class="blog-card-author">
-            <div class="author-placeholder"></div>
-            <div class="blog-card-author-info">
-              <span class="author-name">By Shubham Mishra</span>
-              <span class="author-role">CEO &amp; Co-Founder @ Teklyn Solutions</span>
+          <div class="blog-card-body">
+            <h3>The Age of the Agentic Marketing Stack: When Ad Platforms Become Autonomous</h3>
+            <div class="blog-card-author">
+              <img src="https://ui-avatars.com/api/?name=Kristen+Pecka&background=0284C7&color=fff" alt="Kristen Pecka" class="author-avatar">
+              <div class="blog-card-author-info">
+                <span class="author-name">Kristen Pecka</span>
+                <span class="author-role">Head of Marketing</span>
+              </div>
             </div>
           </div>
-        </div>
-      </a>
+        </a>
+
+        <a href="#" class="blog-card compact fade-up stagger-2">
+          <div class="blog-image-wrapper">
+            <div class="blog-placeholder blp-3 blog-card-img"></div>
+            <div class="blog-meta-glass">
+              <span class="blog-tag">AI Marketing</span>
+              <span class="blog-read-time"><i class="fa-regular fa-clock"></i> 12 min read</span>
+            </div>
+          </div>
+          <div class="blog-card-body">
+            <h3>$0 to $3M in Four Months. This Is What AI Marketing Actually Looks Like.</h3>
+            <div class="blog-card-author">
+              <img src="https://ui-avatars.com/api/?name=Shubham+Mishra&background=4F46E5&color=fff" alt="Shubham Mishra" class="author-avatar">
+              <div class="blog-card-author-info">
+                <span class="author-name">Shubham Mishra</span>
+                <span class="author-role">CEO &amp; Co-Founder</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
