@@ -10,6 +10,7 @@ import Industries from "./components/Industries";
 import MidCTA from "./components/MidCTA";
 import Testimonials from "./components/Testimonials";
 import Blog from "./components/Blog";
+import FAQ from "./components/FAQ";
 import CTA from "./components/CTA";
 import Footer from "./components/Footer";
 
@@ -37,6 +38,8 @@ export default function Home() {
       <Testimonials />
       
       <Blog /> {/* Insights */}
+      
+      <FAQ /> {/* Got Questions? */}
       
       <CTA /> {/* Have a cool project? */}
       
